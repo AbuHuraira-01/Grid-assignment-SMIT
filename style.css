@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #0d0d10;
+}
+
+.mv-wrapper {
+    width: min(600px, 90vw, calc(75vh * 8 / 9));
+    aspect-ratio: 8 / 9;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 8px;
+}
+
+.mv {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    isolation: isolate;
+}
+
+.mv::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center;
+    filter: blur(14px) brightness(0.55);
+    transform: scale(1.2);
+    /* blur ke kinare chhupane ke liye */
+    z-index: -1;
+}
+
+.mv img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.mv-1 {
+    grid-area: 4 / 1 / 6 / 3;
+    --img: url("assets/images/dunkirk.jpg");
+}
+
+.mv-2 {
+    grid-area: 6 / 1 / 8 / 3;
+    --img: url("assets/images/inception.webp");
+}
+
+.mv-3 {
+    grid-area: 4 / 3 / 8 / 7;
+    --img: url("assets/images/Christopher nolan.jpg");
+}
+
+.mv-4 {
+    grid-area: 2 / 3 / 4 / 6;
+    --img: url("assets/images/insomnia.webp");
+}
+
+.mv-5 {
+    grid-area: 1 / 6 / 4 / 9;
+    --img: url("assets/images/interstellar-139399.jpg");
+}
+
+.mv-6 {
+    grid-area: 4 / 7 / 9 / 9;
+    --img: url("assets/images/darkknight.building.webp");
+}
+
+.mv-7 {
+    grid-area: 8 / 5 / 10 / 7;
+    --img: url("assets/images/odyssey_ver2.webp");
+}
+
+.mv-8 {
+    grid-area: 8 / 2 / 10 / 5;
+    --img: url("assets/images/oppenheimer_ver3.webp");
+}
+
+.mv-6 img {
+    object-fit: cover;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at center, rgba(13, 13, 16, 0.35) 0%, rgba(13, 13, 16, 0.92) 75%),
+        url("assets/images/darkknight.building.webp") center / cover no-repeat;
+    filter: blur(6px);
+    transform: scale(1.05);
+    z-index: -1;
+}
